@@ -1,5 +1,6 @@
-# Spring Basic Project Template
+# Spring Boot 3 With Vue 3 Project Template
 ---
+### Backend
 - [x] Support default JWT
 - [x] Support dynamic authority claim
 - [x] Support dynamic cache claim

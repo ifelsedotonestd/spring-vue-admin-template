@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  database:
+    image: bitnami/mariadb:latest
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_USER=root
+      - MARIADB_ROOT_PASSWORD=dev
+      - MARIADB_DATABASE=dev
+      - MARIADB_USER=dev
+      - MARIADB_PASSWORD=dev
+    ports:
+      - "3306:3306"
+  cache:
+    image: eqalpha/keydb:latest
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command:
+      - keydb-server
+      - /etc/keydb/keydb.conf
+      - --server-threads 4
+      - --requirepass dev
